@@ -55,7 +55,10 @@ export default {
         });
         isPending.value = false;
         if (!error.value) {
-          router.push({ name: "PlaylistDetails", params: { id: res.id } });
+          await router.push({
+            name: "PlaylistDetails",
+            params: { id: res.id },
+          });
         }
       }
     };
