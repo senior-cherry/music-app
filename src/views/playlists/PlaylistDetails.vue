@@ -12,6 +12,7 @@
     </div>
     <div class="song-list">
       <p>Songs</p>
+      <AddSong v-if="ownership" :playlist="playlist" />
     </div>
   </div>
 </template>
@@ -23,8 +24,10 @@ import { computed } from "vue";
 import useDocument from "@/composables/useDocument";
 import useStorage from "@/composables/useStorage";
 import { useRouter } from "vue-router";
+import AddSong from "@/components/AddSong.vue";
 
 export default {
+  components: { AddSong },
   props: ["id"],
   setup(props) {
     const { document: playlist, error } = getDocument("playlists", props.id);
