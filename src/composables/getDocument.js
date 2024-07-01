@@ -17,7 +17,6 @@ const getDocument = (collection, id) => {
       }
     },
     (err) => {
-      console.log(err.message);
       error.value = "Could not fetch the document";
     }
   );
